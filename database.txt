@@ -1,0 +1,109 @@
+CREATE TABLE public.products
+(
+    name character varying NOT NULL,
+    price integer NOT NULL,
+    id serial NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS public.products
+    OWNER to postgres;
+
+ALTER TABLE IF EXISTS public.products
+    ADD COLUMN is_sale boolean DEFAULT False;
+
+
+ALTER TABLE IF EXISTS public.products
+    ADD COLUMN created_at timestamp with time zone NOT NULL DEFAULT NOW();
+
+
+SELECT * FROM products;
+
+SELECT name, id, price FROM products;
+
+renaming the columns:
+SELECT id as products_id FROM products;
+
+
+displays specific row from a table:
+SELECT *
+FROM products WHERE id = 5;
+
+SELECT *
+FROM products WHERE price>50;
+
+SELECT *
+FROM products WHERE price<50;
+
+NOT Operator:
+SELECT *
+FROM products where inventory >0 and price>20 ;
+
+SELECT *
+FROM products where price>100 or id = 2;
+
+
+IN OPERATOR:
+SELECT *
+FROM products where id IN (1,2,3);
+
+
+LIKE OPERATOR:
+SELECT *
+FROM products WHERE name LIKE 'TV%';
+
+SELECT *
+FROM products WHERE name LIKE '%en%';
+
+
+NOT LIKE OPERATOR:
+SELECT *
+FROM products WHERE name not LIKE '%en%';
+
+order by operator:
+SELECT *
+FROM products ORDER BY price DESC;
+
+ORDER BY OPEARTOR DECRASING AND WITH LOW PRICE:
+SELECT *
+FROM products ORDER BY price DESC, price;
+
+LIMIT POERATOR:
+select * from products where price LIMIT 5;
+
+INSERT IN TO TABLE ADDING COLUMN:
+INSERT INTO products (name, price, inventory) VALUES('tortilla', 4, 1000);
+
+INSERT RETURNS THE FULL ROW WHAT WE HAVE UPLOADED IN SPECIFIC TABLE:
+INSERT INTO products (name, price, inventory) VALUES('car', 10000, 12) returning *;
+
+
+
+DELETING A ROW FROM A TABLE:
+DELETE FROM products WHERE  ID = 10;
+
+
+UPDATE RECORD:
+UPDATE products SET name='flour tortilla', price=40 WHERE id = 10;
+
+
+
+creating  new table:
+CREATE TABLE public.posts
+(
+    id serial,
+    title character varying NOT NULL,
+    content character varying NOT NULL,
+    published boolean NOT NULL DEFAULT True,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS public.posts
+    OWNER to postgres;
+
+
+
+select * from posts left join votes on posts.id = votes.post_id;
+
+select posts.id, COUNT(votes.posts_id) from posts left join votes on posts.id = votes.post_id group by posts.id;
+

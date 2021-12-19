@@ -1,0 +1,88 @@
+go to iew then comand palate then add interpreter 
+for python in terminal--C:\Users\Surya Teja\Desktop\FastApi\venv\Scripts\python.exe
+
+
+for creating virtual env : py -3 -m venv venv
+for activating virtual env:
+venv\Scripts\activate.bat  
+
+Installing fast FastApi
+pip install fastapi[all]
+
+
+TO start a server on main file:
+uvicorn main:app
+# here code reloads the file
+uvicorn app.main:app --reload
+
+Creating new environment variable around 8.50 hrs
+
+echo %FastApi_DB_URl%
+
+
+creating migration database module alembic
+pip install alembic
+alembic init alembic -------for creating folder
+
+
+craeting table using alembic:
+alembic revision -m "add user table"
+alembic upgrade head--- it is also used for crearting table
+
+to add additional constraints:
+alembic revision -m "add foreign-key to posts table"
+
+
+Alemebic heads:
+alembic heads    -----gives present where is the alembic
+
+alembic revision -m "add last few columns to posts table"
+#below one will upgrade above  table
+alembic upgrade +1
+
+
+alembic revision --autogenerate -m "autovote-vote"
+
+
+fetching you tube and other throught inspect in console:
+
+fetch('http://localhost:8000/').then(res=>res.json()).then(console.log)
+
+
+pip freeze > requirements.txt  --- for preparing requirement.txt file in our app
+
+CREATING GIT REPOSITORY FOR OUR PROJECT:
+git init --- first command in vscode before creating a new named repository in git
+
+
+c   -adds 
+git commit -m "initial commit"
+
+#git config --global user.email suryatej2608@gmail.com    -----
+
+#git config --global user.name surya
+
+git branch -M main
+
+# now its time to craete remote repository in git hub
+git remote add origin https://github.com/Shresti007/FastApi1.git
+
+
+# then final cal git push to origin main
+git push -u origin main
+
+
+
+eroku app url:
+heroku apps:info fastapi-007
+
+heroku apps ------------for finding app url
+when ever u make changes
+git add --all
+
+git commit -m "added procfile"
+
+git push origin main
+
+git push heroku main
+
