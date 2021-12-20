@@ -77,6 +77,8 @@ eroku app url:
 heroku apps:info fastapi-007
 
 heroku apps ------------for finding app url
+heroku ps:restart
+
 when ever u make changes
 git add --all
 
@@ -85,4 +87,10 @@ git commit -m "added procfile"
 git push origin main
 
 git push heroku main
+
+
+
+heroku data base:
+heroku run "alemnic upgrade head"
+
 

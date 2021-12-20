@@ -4,7 +4,7 @@ from app.routers.vote import vote
 from .database import engine
 from .routers import post, user, auth, vote
 from .import models
-from .config import settings
+from .config import Settings, settings
 
 
 #models.Base.metadata.create_all(bind=engine)
@@ -32,4 +32,4 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Hi There, Welcome to my world, Good to see u Duh!!"}
+    return {"message": "Hi There, Welcome to my world, Good to see u Duh!"}
