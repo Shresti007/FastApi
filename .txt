@@ -91,6 +91,6 @@ git push heroku main
 
 
 heroku data base:
-heroku run "alemnic upgrade head"
+heroku run "alembic upgrade head"
 
 
